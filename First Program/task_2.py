@@ -63,33 +63,6 @@ def arrows(key, x, y):
     glutPostRedisplay()
 
 
-# def blink(x):
-#     global balls, colors, state 
-
-#     for idx, ball in enumerate(balls):
-#         x,y, color, dirx, diry = ball
-#         colors.append(color) 
-
-#         color = (1,1,1)
-
-#         ball = x,y, color, dirx, diry
-#         balls[idx] = ball
-
-#     state = True
-#     print("y")
-#     glutPostRedisplay()
-#     glutTimerFunc(1000, blink, 0)
-
-# for idx, ball in enumerate(balls):
-#     x,y, color, dirx, diry = ball
-
-#     color= colors[idx]
-
-#     ball = x,y, color, dirx, diry
-#     balls[idx] = ball
-# glutPostRedisplay()
-
-
 def mouse(button, state, x, y):
     global balls, blinkchk
 
@@ -97,7 +70,6 @@ def mouse(button, state, x, y):
         if state == GLUT_DOWN and not freezeChk:
             if not blinkchk:
                 blinkchk = True
-                # glutTimerFunc(1000, blink, 0)
             else:
                 blinkchk = False
 
@@ -149,22 +121,6 @@ def showScreen():
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     glLoadIdentity()
     iterate()
-
-    glColor3f(0, 0, 0)  # box border color
-    glLineWidth(2)  # box
-    glBegin(GL_LINES)
-    glVertex2f(0, 0)
-    glVertex2f(1000, 0)
-
-    glVertex2f(1000, 0)
-    glVertex2f(1000, 500)
-
-    glVertex2f(1000, 500)
-    glVertex2f(0, 500)
-
-    glVertex2f(0, 500)
-    glVertex2f(0, 0)
-    glEnd()
 
     drawPoints()  # points
 
